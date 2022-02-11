@@ -2,7 +2,7 @@ window.onload = function() {
 
     (function() {
         const sections = document.querySelectorAll('[id$="section"]');
-        const menuItems = document.querySelectorAll('.header__li>a')
+        /* const menuItems = document.querySelectorAll('.header__li>a') */
         
         const sectionsObserver = new IntersectionObserver((entries) => {
             /* entries.forEach(entry => {
@@ -32,9 +32,25 @@ window.onload = function() {
         sections.forEach(section => sectionsObserver.observe(section));
     })();
 
+    (function() {
+        /* const menuItems = document.querySelectorAll('header__a'); */
+        const menuItems = document.getElementsByClassName('header__a');
+        const checkMenu = document.getElementById('menu-icon');
+
+        /* menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                checkMenu.checked = false;
+            });
+        }); */
+        for (const item of menuItems) {
+            item.addEventListener('click', () => {
+                checkMenu.checked = false;
+            });
+        }
+    })();
+
 
     window.onscroll = function() {
-
         const skills = document.getElementById('skills-section');
         const barAnimation80 = document.querySelectorAll('.skills__bar--80p');
         const barAnimation95 = document.querySelector('.skills__bar--95p');
@@ -55,5 +71,13 @@ window.onload = function() {
             barAnimation95.style.animation = 'barAnimation95 2s ease';
         }
     }
+
+    /* const portfolioContainer = document.getElementsByClassName('myportfolio__container')[0];
+    const portfolioContent = document.getElementsByClassName('myportfolio__content')[0];
+    portfolioContent.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        portfolioContainer.scrollLeft += e.deltaY;
+        console.log(e.deltaY);
+    }); */
 
 }
